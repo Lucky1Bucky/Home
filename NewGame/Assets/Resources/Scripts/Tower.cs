@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.PlasticSCM.Editor.WebApi;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Tower : MonoBehaviour
@@ -13,6 +14,7 @@ public class Tower : MonoBehaviour
     [Space]
     [SerializeField] private GameObject _bullet;
     [SerializeField] private Transform _shotPoint;
+    [SerializeField] private Transform _shotPoint2;
     [SerializeField] private LayerMask _layerEnemy;
 
 
@@ -41,6 +43,7 @@ public class Tower : MonoBehaviour
             {
                 StartCoroutine(_countdownReload());
                 Shot();
+                Shot2();
             }
 
         }
@@ -52,6 +55,13 @@ public class Tower : MonoBehaviour
         
         tempBullet.SetStats(_damageBullet, _speedBullet, (int)typeEffect, FindClosestEnemy().transform);
     
+    }
+    private void Shot2()
+    {
+        var tempBullet = Instantiate(_bullet, _shotPoint2.position, Quaternion.identity).GetComponent<Bullet>();
+
+        tempBullet.SetStats(_damageBullet, _speedBullet, (int)typeEffect, FindClosestEnemy().transform);
+
     }
 
     private GameObject FindClosestEnemy()
