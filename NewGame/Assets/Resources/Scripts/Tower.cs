@@ -13,12 +13,9 @@ public class Tower : MonoBehaviour
     [SerializeField] private float _radiusAttack;
     [Space]
     [SerializeField] private GameObject _bullet;
-    [SerializeField] private Transform _shotPoint;
-    [SerializeField] private Transform _shotPoint2;
+    [SerializeField] private Transform[] _shotPoints;
     [SerializeField] private LayerMask _layerEnemy;
-
-
-
+    [Space]
     public TypeEffect typeEffect;
 
     public enum TypeEffect
@@ -42,26 +39,26 @@ public class Tower : MonoBehaviour
             if(_isReload == false)
             {
                 StartCoroutine(_countdownReload());
-                Shot();
-                Shot2();
+                StartShot();
             }
 
         }
     }
 
-    private void Shot()
+    private void StartShot()
     {
-        var tempBullet = Instantiate(_bullet, _shotPoint.position, Quaternion.identity).GetComponent<Bullet>();
-        
-        tempBullet.SetStats(_damageBullet, _speedBullet, (int)typeEffect, FindClosestEnemy().transform);
-    
+        StartCoroutine(Shot());
     }
-    private void Shot2()
+    
+    private IEnumerator Shot()
     {
-        var tempBullet = Instantiate(_bullet, _shotPoint2.position, Quaternion.identity).GetComponent<Bullet>();
+        for (int i = 0;  i < _shotPoints.Length;  i++)
+        {
+            var tempBullet = Instantiate(_bullet, _shotPoints[i].position, Quaternion.identity).GetComponent<Bullet>();
+            tempBullet.SetStats(_damageBullet, _speedBullet, (int)typeEffect, FindClosestEnemy().transform);
+            yield return new WaitForSeconds(1 + i);
 
-        tempBullet.SetStats(_damageBullet, _speedBullet, (int)typeEffect, FindClosestEnemy().transform);
-
+        }
     }
 
     private GameObject FindClosestEnemy()
