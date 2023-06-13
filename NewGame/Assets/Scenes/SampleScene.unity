@@ -3233,11 +3233,23 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 349342445}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1969291020}
+        m_TargetAssemblyTypeName: Store, Assembly-CSharp
+        m_MethodName: SelectTowerID
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &349342445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4386,11 +4398,23 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 464235450}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1969291020}
+        m_TargetAssemblyTypeName: Store, Assembly-CSharp
+        m_MethodName: SelectTowerID
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &464235450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6358,11 +6382,23 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 649066087}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1969291020}
+        m_TargetAssemblyTypeName: Store, Assembly-CSharp
+        m_MethodName: SelectTowerID
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &649066087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8635,11 +8671,23 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 955885024}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1969291020}
+        m_TargetAssemblyTypeName: Store, Assembly-CSharp
+        m_MethodName: SelectTowerID
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &955885024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15427,7 +15475,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _towerPrefabs:
+  - {fileID: 3558293730955120250, guid: 92fc640560d87c24680daabca72973e5, type: 3}
+  - {fileID: 3558293730955120250, guid: 9c4b190cb3c573c4aa99c141baa8403e, type: 3}
+  - {fileID: 3558293730955120250, guid: 2b6b97af447f77f43ab54e9524fcac53, type: 3}
   - {fileID: 3558293730955120250, guid: 0e19c92f676b71d4aa9de11f112847ec, type: 3}
+  - {fileID: 3558293730955120250, guid: b6693dbf7ec2d9345bae41544ea7fbd1, type: 3}
   _buildPointsParent: {fileID: 875576031}
 --- !u!4 &1969291021
 Transform:
@@ -15456,7 +15508,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91324a4fff06aeb4dbd6a06a06db0178, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 0
+  HP: 100
   CoinCount: 0
 --- !u!33 &1976149252
 MeshFilter:
@@ -18620,6 +18672,7 @@ GameObject:
   - component: {fileID: 4118895393871716}
   - component: {fileID: 33346429189124422}
   - component: {fileID: 23335464931969388}
+  - component: {fileID: 33346429189124423}
   m_Layer: 0
   m_Name: TB_Barracks_Lvl4B
   m_TagString: Untagged
@@ -26350,6 +26403,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1917309494430604}
   m_Mesh: {fileID: 4300000, guid: f304df788ea6f954cb9b3fb25aea93b4, type: 3}
+--- !u!114 &33346429189124423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917309494430604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93d7bdb78b8ff034bba808668c2ff67c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _materialOff: {fileID: 2100000, guid: c717fb89e24ff384785039c0f1169eee, type: 2}
+  _materialOn: {fileID: 2100000, guid: 0688fcb3c760c6641b557dcf35dd388a, type: 2}
 --- !u!33 &33348950593904915
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -27182,8 +27249,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 100
-  _speedMove: 6
+  _speedMove: 50
   _tempPoints: {fileID: 1096455519}
+  _isDeadDamage: 25
 --- !u!65 &3951500932670296885
 BoxCollider:
   m_ObjectHideFlags: 0

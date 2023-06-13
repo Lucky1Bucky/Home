@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float _maxHealth;
     [SerializeField] private float _speedMove;
     [SerializeField] Transform _tempPoints;
+    [SerializeField] private int _isDeadDamage;
 
 
     private Transform[] _points;
@@ -40,6 +41,7 @@ public class Enemy : MonoBehaviour
 
         if(_currentMovePoints >= _points.Length)
         {
+            PlayerProgress.Instance.TakeDamage(_isDeadDamage);
             Kill();
         }
 
@@ -69,5 +71,8 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void Kill() => Destroy(gameObject);
+    public void Kill()
+    {
+        Destroy(gameObject);
+    }
 }

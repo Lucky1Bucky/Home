@@ -14,9 +14,20 @@ public class PlayerProgress : MonoBehaviour
 
     }
 
+    public void TakeDamage(int Damage)
+    {
+        HP -= Damage;
+        TowerDamageColor.Instance.StartColorDamage();
+        if (HP <= 0)
+        {
+            Debug.Log("Dead");
+        }
+
+    }
+
     public bool IsBuy(int price)
     {
-        if (CoinCount > price)
+        if (CoinCount >= price)
         {
             CoinCount -= price;
             return true;
