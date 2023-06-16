@@ -34,7 +34,7 @@ public class Bullet : MonoBehaviour
         {
             if(_target.TryGetComponent(out Enemy enemy))
             {
-                enemy.TakeDamage(_damage);
+                enemy.TakeDamage(_damage, _effectID);
                 Kill();
             }
         }
