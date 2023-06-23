@@ -95,6 +95,7 @@ MonoBehaviour:
   _speedBullet: 100
   _timeReload: 3
   _radiusAttack: 15
+  _cost: 15
   _bullet: {fileID: 3926319546019924626, guid: b6de82bb0c1f89149aeab6bd172d7d77, type: 3}
   _shotPoints:
   - {fileID: 3558293730490233293}

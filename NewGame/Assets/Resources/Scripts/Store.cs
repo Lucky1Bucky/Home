@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Store : MonoBehaviour
 {
-    [SerializeField] private GameObject[] _towerPrefabs;
+    [SerializeField] private Tower[] _towerPrefabs;
     [SerializeField] private Transform _buildPointsParent;
 
     public static Store Instance;
@@ -17,7 +17,7 @@ public class Store : MonoBehaviour
 
     public void BuyTower(Transform buildpoint)
     {
-        if (PlayerProgress.Instance.IsBuy(0))
+        if (PlayerProgress.Instance.IsBuy(_towerPrefabs[_selectTowerID]._cost))
         {
             Instantiate(_towerPrefabs[_selectTowerID], buildpoint.position, Quaternion.identity);
             buildpoint.gameObject.SetActive(false);

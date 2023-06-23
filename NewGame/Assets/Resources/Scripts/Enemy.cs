@@ -8,8 +8,10 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private float _maxHealth;
     [SerializeField] private float _speedMove;
-    [SerializeField] Transform _tempPoints;
     [SerializeField] private int _isDeadDamage;
+    [SerializeField] private GameObject _burnFX;
+    [SerializeField] private GameObject _freezingFX;
+    [SerializeField] private GameObject _poisonFX;
 
     private HealthBar _healthBar;
     private Transform[] _points;
@@ -29,7 +31,6 @@ public class Enemy : MonoBehaviour
         _healthBar = GetComponent<HealthBar>();
         _health = _maxHealth;
         _healthBar.RefreshHealthBar(_health, _maxHealth);
-        SetPoint(_tempPoints);
     }
 
     void FixedUpdate()
@@ -39,6 +40,7 @@ public class Enemy : MonoBehaviour
 
     private void Move()
     {
+        if (_points[_currentMovePoints] != null)
         _agent.SetDestination(_points[_currentMovePoints].position);
 
         if (Vector3.Distance(transform.position, _points[_currentMovePoints].position) < 1)
@@ -55,14 +57,15 @@ public class Enemy : MonoBehaviour
     }
 
 
-    public void TakeDamage(float damage, int effectID)
+    public void TakeDamage(float damage, int effectID = 0)
     {
-        _health -= damage;
+
+        _health -= _isPoison ? damage /0.8f :damage;
         _healthBar.RefreshHealthBar(_health, _maxHealth);
 
         switch (effectID)
         {
-            case 1: StartCoroutine(Burn()); break;
+            case 1: StartCoroutine(Burn(damage)); break;
             case 2: StartCoroutine(Freezing()); break;
             case 3: Poison(); break;
 
@@ -72,18 +75,32 @@ public class Enemy : MonoBehaviour
         CheckIsDead();
     }
 
-    private IEnumerator Burn()
+    private IEnumerator Burn (float damage)
     {
-        _isBurn = true;
-        yield return null;
-        _isBurn = false;
+        if(_isBurn == false)
+        {
+            _isBurn = true;
+            _burnFX.SetActive(true);
+            for (int i = 0; i < Random.Range(5,8); i++)
+            {
+                TakeDamage(damage / 2, 0);
+                yield return new WaitForSeconds(Random.Range(1,3));
+            }
+
+            _isBurn = false;
+            _burnFX.SetActive(false);
+
+        }
+
     }
 
     private IEnumerator Freezing()
     {
+        
         if (_isFreezing == true)
         {
             _isFreezing = true;
+            _freezingFX.SetActive(true);
             _agent.speed *= 0.8f;
 
 
@@ -92,6 +109,7 @@ public class Enemy : MonoBehaviour
 
             _agent.speed /= 0.8f;
             _isFreezing = false;
+            _freezingFX.SetActive(false);
         }
        
     }
@@ -99,6 +117,7 @@ public class Enemy : MonoBehaviour
     private void Poison()
     {
         _isPoison = true;
+        _poisonFX.SetActive(true);
     }
 
     public void CheckIsDead()

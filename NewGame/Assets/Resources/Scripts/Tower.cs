@@ -11,6 +11,7 @@ public class Tower : MonoBehaviour
     [SerializeField] private float _speedBullet;
     [SerializeField] private float _timeReload;
     [SerializeField] private float _radiusAttack;
+    [SerializeField] public int _cost;
     [Space]
     [SerializeField] private GameObject _bullet;
     [SerializeField] private Transform[] _shotPoints;

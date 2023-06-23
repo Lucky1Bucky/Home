@@ -10,6 +10,7 @@ public class Bullet : MonoBehaviour
     private Transform _target;
 
 
+
     public void SetStats(float damage, float speed, int effectID,Transform target)
     {
         _damage = damage;
